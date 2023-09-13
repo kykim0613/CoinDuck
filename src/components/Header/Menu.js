@@ -25,7 +25,7 @@ const MenuContainer = styled.div`
   width: 400px;
   height: 500px;
   border-radius: 20px;
-  background-color: ${(props) => props.$active ? `#333` : `#fff`};;
+  background-color: ${(props) => props.$active ? `#fff` : `#333`};;
 `;
 
 const Menu = () => {
@@ -43,7 +43,7 @@ const Menu = () => {
             <MenuBar $active={blackMode}></MenuBar>
             <MenuBar $active={blackMode}></MenuBar>
       </MenuBox>
-      {toggleMenu && <MenuContainer></MenuContainer>}
+      {toggleMenu && <MenuContainer $active={blackMode}></MenuContainer>}
     </>
   );
 };

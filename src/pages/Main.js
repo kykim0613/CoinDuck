@@ -1,13 +1,18 @@
-import Menu from "../components/Header/Menu";
-import Mode from "../components/Header/Mode";
+import ReturnChart from "../components/ReturnChart";
+import Table from "../components/Table";
+import { ChartContainer, Container } from "../theme";
 
 const Main = () => {
-    return (
-        <>
-            <Menu />
-            <Mode />
-        </>
-    )
-}
+  return (
+    <Container>
+      <ChartContainer>
+        <ReturnChart />
+        <br/>
+        <br/>
+        <Table />
+      </ChartContainer>
+    </Container>
+  );
+};
 
 export default Main;
