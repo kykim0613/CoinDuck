@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+      /* 기본 설정 */
+      "target": "es5",                          /* ECMAScript 대상 버전 지정. */
+      "module": "commonjs",                     /* 모듈 코드 생성 지정: 'none', 'commonjs', 'amd', 'system', 'umd', 'es6', 'es2015', 'es2020', or 'ESNext'. */
+      "lib": ["dom", "es6", "dom.iterable", "scripthost"], /* 컴파일에 포함될 라이브러리 파일 목록. */
+      "outDir": "./dist",                       /* 출력 디렉터리 지정. */
+      "rootDir": "./src",                       /* 입력 파일의 루트 디렉터리 지정. */
+      "removeComments": true,                   /* 출력에서 주석 제거. */
+      /* 소스 맵 */
+      "sourceMap": true,                        /* 출력 파일에 대한 소스 맵 생성. */
+      /* 엄격한 타입 검사 */
+      "strict": true,                           /* 모든 타입 검사 옵션 활성화. */
+  
+      /* 모듈 해석 */
+      "esModuleInterop": true,                  /* esModule 와 commonJS 모듈 간의 상호 운용성 활성화. */
+      
+      /* 실험적인 옵션 */
+      "experimentalDecorators": true,           /* ES7 데코레이터를 사용하도록 지정. */
+      "emitDecoratorMetadata": true             /* 데코레이터에 디자인 타입 메타 데이터를 내보냅니다. */
+    },
+    "include": [
+      "src/**/*.ts",                             /* 컴파일에 포함될 TypeScript 파일의 패턴. */
+    ],
+    "exclude": [
+      "node_modules",                           /* 컴파일에서 제외될 항목. */
+      "**/*.test.ts"
+    ]
+  }

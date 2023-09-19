@@ -2,9 +2,10 @@ import styled from "styled-components";
 import Menu from "./Header/Menu";
 import Mode from "./Header/Mode";
 import { useRecoilValue } from "recoil";
-import { mode } from "../atom";
+import { active, mode } from "../atom";
+import React from "react";
 
-const Container = styled.div`
+const Container = styled.div<active>`
   width: 1200px;
   height: 200px;
   margin: 0 auto;
@@ -22,7 +23,7 @@ const ModeBox = styled.div`
   right: 0;
 `;
 
-const Header = () => {
+const Header: React.FC = () => {
   const blackMode = useRecoilValue(mode);
 
   return (

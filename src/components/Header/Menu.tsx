@@ -1,7 +1,7 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
-import { mode } from "../../atom";
+import { active, mode } from "../../atom";
 
 const MenuBox = styled.div`
   background-color: transparent;
@@ -15,20 +15,20 @@ const MenuBox = styled.div`
   padding: 10px;
 `;
 
-const MenuBar = styled.div`
+const MenuBar = styled.div<active>`
   width: 100%;
   height: 2px;
   background-color: ${(props) => props.$active ? `#fff` : `#333`};
 `;
 
-const MenuContainer = styled.div`
+const MenuContainer = styled.div<active>`
   width: 400px;
   height: 500px;
   border-radius: 20px;
   background-color: ${(props) => props.$active ? `#fff` : `#333`};;
 `;
 
-const Menu = () => {
+const Menu:React.FC = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const blackMode = useRecoilValue(mode)
 

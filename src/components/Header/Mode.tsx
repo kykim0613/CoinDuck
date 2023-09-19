@@ -1,8 +1,9 @@
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
-import { mode } from "../../atom";
+import { active, mode } from "../../atom";
+import React from "react";
 
-const BlackModeBtn = styled.button`
+const BlackModeBtn = styled.button<active>`
     width: 80px;
     height: 40px;
     border-radius: 30px;
@@ -13,7 +14,7 @@ const BlackModeBtn = styled.button`
     justify-content: center;
     text-align:center;
 `
-const Circle = styled.div`
+const Circle = styled.div<active>`
     width: 30px;
     height: 30px;
     border-radius: 30px;
@@ -22,7 +23,7 @@ const Circle = styled.div`
     float: ${(props) => props.$active ? `left` : `right`};
 `
 
-const Mode = () => {
+const Mode:React.FC = () => {
     const [Btn, setBtn] = useRecoilState(mode)
 
     const handleModeBtn = () => {
@@ -30,7 +31,7 @@ const Mode = () => {
     }
     return (
         <>
-        <BlackModeBtn onClick={handleModeBtn}>
+        <BlackModeBtn onClick={handleModeBtn} $active={Btn}>
             <Circle $active={Btn} />
         </BlackModeBtn>
         </>

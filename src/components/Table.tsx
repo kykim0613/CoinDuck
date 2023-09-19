@@ -1,6 +1,7 @@
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
-import { mode } from "../atom";
+import { active, mode } from "../atom";
+import React from "react";
 
 const DrawTable = styled.table`
   width: 100%;
@@ -8,7 +9,7 @@ const DrawTable = styled.table`
   align-items: center;
   justify-content: center;
 `;
-const TableTitle = styled.td`
+const TableTitle = styled.td<active>`
   border: ${(props) => (props.$active ? `1px solid #fff` : `1px solid #333`)};
   background-color: beige;
   color: black;
@@ -17,14 +18,14 @@ const TableTitle = styled.td`
   align-items: center;
   justify-content: center;
 `;
-const TableContent = styled.td`
+const TableContent = styled.td<active>`
   border: ${(props) => (props.$active ? `1px solid #fff` : `1px solid #333`)};
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 
-const Table = () => {
+const Table: React.FC = () => {
   const blackMode = useRecoilValue(mode);
   const data = [
     { date: 1, coin: "BTC", rate: 30 },
@@ -33,12 +34,14 @@ const Table = () => {
   ];
   return (
     <DrawTable>
-      {data.map((user) => (
-        <tr key={user.id}>
+      {data.map((user, index) => (
+        <tbody key={index} style={{display:"flex"}}>
+          <tr>
           <TableTitle $active={blackMode}>{user.date}</TableTitle>
           <TableContent $active={blackMode}>{user.coin}</TableContent>
           <TableContent $active={blackMode}>{user.rate} %</TableContent>
-        </tr>
+          </tr>
+        </tbody>
       ))}
     </DrawTable>
   );

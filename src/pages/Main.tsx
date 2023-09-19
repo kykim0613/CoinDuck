@@ -1,3 +1,4 @@
+import React from "react";
 import ReturnChart from "../components/ReturnChart";
 import Table from "../components/Table";
 import { ChartContainer, Container } from "../theme";
